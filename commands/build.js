@@ -152,7 +152,7 @@ async function build (args, api, options) {
       // app: api.resolve(entry)
       app: modulePath + '/main.js' // 2，修改entry入口
     }
-    webpackConfig.output.publicPath = ''
+    webpackConfig.output.publicPath = '/' + args.entry + '/'
     webpackConfig.output.path = targetDir
     for(let item of webpackConfig.plugins) {
       if (item.options && item.options.template) item.options.template= modulePath + '/index.html'  // 3，修改webpackConfig.plugins.HtmlWebpackPlugin template 入口
